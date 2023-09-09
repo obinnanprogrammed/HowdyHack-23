@@ -21,7 +21,7 @@ function App() {
         <Route path="/home" component = {SimpleSidebar} />
         
       </Routes>
-      <SimpleCard />
+      <SimpleSidebar />
     </Router>
   )
 }

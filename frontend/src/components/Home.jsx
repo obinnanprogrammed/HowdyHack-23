@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import rev from "../Rev_Rewards.png"
 import {
   IconButton,
   Box,
@@ -65,9 +66,7 @@ function SidebarContent({ onClose, ...rest }) {
       h="full"
       {...rest}>
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-          Logo
-        </Text>
+        <img src={rev} height={50} width={50} />
         <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
