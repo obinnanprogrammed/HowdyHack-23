@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import SimpleCard from 'components/SimpleCard.jsx';
+import SimpleCard from "./components/SimpleCard";
 
 function App() {
   const [data, setData] = useState(null);
