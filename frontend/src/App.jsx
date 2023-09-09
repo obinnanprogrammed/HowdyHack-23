@@ -22,7 +22,8 @@ function App() {
 
   return (
     <>
-      <div>{data ? data.message : "Loading..."}</div>
+      {/* <div>{data ? data.message : "Loading..."}</div> */}
+
       {showSignup ? (
         <SignupCard
           switchToLogin={() => setShowSignup(false)}

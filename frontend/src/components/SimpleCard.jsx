@@ -13,6 +13,7 @@ import {
   useColorModeValue,
   Link,
 } from "@chakra-ui/react";
+import Dashboard from "./Dashboard";
 
 export default function SimpleCard({ switchToSignup, onLogin }) {
   const [enteredEmail, setEnteredEmail] = useState("");
@@ -39,7 +40,7 @@ export default function SimpleCard({ switchToSignup, onLogin }) {
   };
 
   if (isAuthenticated) {
-    return <div>Welcome, User!</div>;
+    return <Dashboard />;
   }
 
   return (
