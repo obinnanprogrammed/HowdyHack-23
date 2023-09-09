@@ -28,6 +28,8 @@ export default function SignupCard({ switchToLogin, onRegister }) {
     // Store user's credentials in local storage
     localStorage.setItem(email, password);
     alert("Registered Successfully!");
+
+    switchToLogin();
   };
 
   return (
