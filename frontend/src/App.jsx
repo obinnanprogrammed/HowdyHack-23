@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import SimpleCard from 'components/SimpleCard.jsx';
 
 function App() {
   const [data, setData] = useState(null);
@@ -10,7 +11,7 @@ function App() {
     });
   }, []);
 
-  return <div>{data ? data.message : "Loading..."}</div>;
+  return <div>{data ? <SimpleCard /> : "Loading..."}</div>;
 }
 
 export default App;
