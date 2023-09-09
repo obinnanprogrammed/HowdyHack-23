@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class BackendappConfig(AppConfig):
+class ViteConfig(AppConfig):
     default_auto_field = "django.db.models.BigAutoField"
-    name = "backendapp"
+    name = "vite"
