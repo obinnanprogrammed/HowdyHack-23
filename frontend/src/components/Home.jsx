@@ -20,18 +20,16 @@ import {
   FiSettings,
   FiMenu,
 } from 'react-icons/fi';
+import DropdownGrid from "./Dropdown.jsx";
 
 const LinkItems = [
   { name: 'Home', icon: FiHome },
-  { name: 'Trending', icon: FiTrendingUp },
-  { name: 'Explore', icon: FiCompass },
-  { name: 'Favourites', icon: FiStar },
-  { name: 'Settings', icon: FiSettings },
+  { name: 'Upload', icon: FiTrendingUp },
+  { name: 'Businesses', icon: FiCompass }
 ];
 
 export default function SimpleSidebar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
-
   return (
     <Box minH="100vh" bg={useColorModeValue('red.800', 'gray.900')}>
       <SidebarContent onClose={onClose} display={{ base: 'none', md: 'block' }} />
@@ -56,6 +54,10 @@ export default function SimpleSidebar() {
 }
 
 function SidebarContent({ onClose, ...rest }) {
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen);
+    }
   return (
     <Box
       bg={useColorModeValue('white', 'gray.900')}
@@ -120,9 +122,9 @@ function MobileNav({ onOpen, ...rest }) {
       px={{ base: 4, md: 24 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue('white', 'gray.900')}
+      bg={useColorModeValue('white', 'red.800')}
       borderBottomWidth="1px"
-      borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
+      borderBottomColor={useColorModeValue('red.800', 'gray.700')}
       justifyContent="flex-start"
       {...rest}>
       <IconButton
@@ -132,9 +134,7 @@ function MobileNav({ onOpen, ...rest }) {
         icon={<FiMenu />}
       />
 
-      <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-        Logo
-      </Text>
+      <img src={rev} height={50} width={50} />
     </Flex>
   );
 }
