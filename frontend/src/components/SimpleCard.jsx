@@ -1,5 +1,4 @@
-"use client";
-
+import React, { useState } from "react";
 import {
   Flex,
   Box,
@@ -12,7 +11,40 @@ import {
   Heading,
   Text,
   useColorModeValue,
+  Link,
 } from "@chakra-ui/react";
+
+import Dashboard from "./Dashboard";
+
+export default function SimpleCard({ switchToSignup, onLogin }) {
+  const [enteredEmail, setEnteredEmail] = useState("");
+  const [enteredPassword, setEnteredPassword] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Define your correct email and password (Note: In real-world applications, never hard code these in frontend code!)
+  const handleLogin = () => {
+    const storedPassword = localStorage.getItem(enteredEmail);
+
+    if (storedPassword && storedPassword === enteredPassword) {
+      setIsAuthenticated(true);
+    } else {
+      alert("Incorrect email or password!");
+    }
+  };
+
+  const handleEmailChange = (event) => {
+    setEnteredEmail(event.target.value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setEnteredPassword(event.target.value);
+  };
+
+  if (isAuthenticated) {
+    return <Dashboard />;
+  }
+
+=======
 import {useState} from 'react';
 import {useNavigate} from 'react-router-dom';
 
@@ -42,6 +74,7 @@ export default function SimpleCard() {
       history.push("/home");
     }
   }
+
   return (
     <Flex
       minH={"100vh"}
@@ -62,11 +95,27 @@ export default function SimpleCard() {
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
+
+              <Input
+                type="email"
+                value={enteredEmail}
+                onChange={handleEmailChange}
+              />
+            </FormControl>
+            <FormControl id="password">
+              <FormLabel>Password</FormLabel>
+              <Input
+                type="password"
+                value={enteredPassword}
+                onChange={handlePasswordChange}
+              />
+
               <Input type="email" onChange={handleInputChange} />
             </FormControl>
             <FormControl id="password">
               <FormLabel>Password</FormLabel>
               <Input type="password" onChange={handleInputChange} />
+
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -74,8 +123,9 @@ export default function SimpleCard() {
                 align={"start"}
                 justify={"space-between"}
               >
-                <Checkbox>Remember me</Checkbox>
-                <Text color={"blue.400"}>Forgot password?</Text>
+                <Text color={"blue.400"} onClick={switchToSignup}>
+                  <Link>Create An Account</Link>
+                </Text>
               </Stack>
               <Button
                 bg={"blue.400"}
@@ -83,7 +133,12 @@ export default function SimpleCard() {
                 _hover={{
                   bg: "blue.500",
                 }}
+
+                onClick={handleLogin}
+              >
+
               onClick={handleSubmit}>
+
                 Sign in
               </Button>
             </Stack>
