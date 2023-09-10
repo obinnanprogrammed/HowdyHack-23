@@ -181,9 +181,9 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">Justina Clark</Text>
+                  <Text fontSize="sm">Three Dumb Kids</Text>
                   <Text fontSize="xs" color="gray.600">
-                    Admin
+                    Programmers
                   </Text>
                 </VStack>
                 <Box display={{ base: "none", md: "flex" }}>
@@ -231,7 +231,12 @@ const Dashboard = () => {
       </Drawer>
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        <h1>Welcome to Reveille Rewards!</h1>
+        <div>
+          <h1>Welcome to Reveille Rewards!</h1>
+        </div>
+        <div>
+          <p>You currently have some number of points. Click the Upload button on the left to upload your receipts!</p>
+        </div>
       </Box>
     </Box>
   );
