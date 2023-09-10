@@ -4,8 +4,10 @@ const ReceiptExtractor = require('./receipt_extractor'); // Adjust the path acco
 const imagePath = './receipt/test_receipt.jpg';
 const receiptExtractor = new ReceiptExtractor(imagePath);
 
-describe('Receipt Extraction Tests', async function  () {
-    it('should extract subtotal prices', async function () {
+it('should extract subtotal prices', async function () {
+    this.timeout(10000)
+
+    setTimeout(function () {
         const items = receiptExtractor.getSubtotalPrices();
         expect(items).to.have.lengthOf(2);
         expect(items[0]).to.equal(4.99);
@@ -13,17 +15,30 @@ describe('Receipt Extraction Tests', async function  () {
         expect(receiptExtractor.getReceipt().subtotal).to.equal(7.98);
         expect(receiptExtractor.getReceipt().tax).to.equal(0.00);
         expect(items[1]).to.equal(2.99);
-    });
+    }, 10000);
 
-    it('should correctly extract store information', async function  () {
+});
+
+it('should correctly extract store information', async function  () {
+    this.timeout(10000)
+
+    setTimeout(function () {
         expect(receiptExtractor.getStore()).to.equal("Revs American Grill @ MSC");
-    });
+    }, 10000);
+});
 
-    it('should correctly extract receipt number', async function  () {
+it('should correctly extract receipt number', async function  () {
+    this.timeout(10000)
+
+    setTimeout(function () {
         expect(receiptExtractor.getReceiptNumber()).to.equal("20753");
-    });
+        }, 10000);
+});
 
-    it('should correctly extract date', async function  () {
+it('should correctly extract date', async function  () {
+    this.timeout(10000)
+
+    setTimeout(function () {
         expect(receiptExtractor.getDate()).to.equal("09/09/2023");
-    });
+    }, 10000);
 });

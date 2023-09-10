@@ -49,7 +49,7 @@ class ReceiptExtractor {
         await (async () => {
             await worker.loadLanguage('eng');
             await worker.initialize('eng');
-            const {data: {text}} = await worker.recognize('https://tesseract.projectnaptha.com/img/eng_bw.png');
+            const {data: {text}} = await worker.recognize(imagePath);
             this.text = text;
             await worker.terminate();
         })();
@@ -57,8 +57,8 @@ class ReceiptExtractor {
         // Extract date, receipt number, items, prices, total, and store info
         this.receipt.setDate = this.getDate(this.text);
         this.receipt.setStore = this.getStore(this.text);
-        this.receipt.receiptNumber = this.getReceiptNumber(this.text);
-        this.receipt.subtotalPrices = this.getSubtotalPrices(this.text);
+        this.receipt.setReceiptNumber = this.getReceiptNumber(this.text);
+        this.receipt.setSubtotalPrices = this.getSubtotalPrices(this.text);
     }
 
     getText() {
