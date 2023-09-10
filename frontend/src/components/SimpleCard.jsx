@@ -13,7 +13,6 @@ import {
   useColorModeValue,
   Link,
 } from "@chakra-ui/react";
-
 import Dashboard from "./Dashboard";
 
 export default function SimpleCard({ switchToSignup, onLogin }) {
@@ -43,16 +42,44 @@ export default function SimpleCard({ switchToSignup, onLogin }) {
   if (isAuthenticated) {
     return <Dashboard />;
   }
+
   return (
     <Flex
       minH={"100vh"}
       align={"center"}
       justify={"center"}
-      bg={useColorModeValue("gray.50", "gray.800")}
+      bg={useColorModeValue(
+        "linear-gradient(135deg, #E29495, #D47583, #BF556A)",
+        "gray.800"
+      )}
     >
-      <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+      <Stack spacing={8} mx={"auto"} maxW={"xl"} py={12} px={6}>
         <Stack align={"center"}>
-          <Heading fontSize={"4xl"}>Sign in to your account</Heading>
+          <Heading
+            fontSize={"6xl"}
+            textAlign="center"
+            fontFamily="'Pacifico', cursive"
+            textShadow="
+        -2.5px -2.5px 0 #000,  
+         2.5px -2.5px 0 #000,
+         -2.5px 2.5px 0 #000,
+          2.5px 2.5px 0 #000"
+            color={"white"}
+          >
+            Reveille Rewards
+          </Heading>
+          <Text
+            fontSize={"2xl"}
+            color={"white"}
+            textShadow="
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+         -1px 1px 0 #000,
+          1px 1px 0 #000"
+            fontFamily="'Pacifico', cursive"
+          >
+            Shop small, score big!
+          </Text>
         </Stack>
         <Box
           rounded={"lg"}
@@ -63,7 +90,6 @@ export default function SimpleCard({ switchToSignup, onLogin }) {
           <Stack spacing={4}>
             <FormControl id="email">
               <FormLabel>Email address</FormLabel>
-
               <Input
                 type="email"
                 value={enteredEmail}
@@ -77,7 +103,6 @@ export default function SimpleCard({ switchToSignup, onLogin }) {
                 value={enteredPassword}
                 onChange={handlePasswordChange}
               />
-
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -95,7 +120,6 @@ export default function SimpleCard({ switchToSignup, onLogin }) {
                 _hover={{
                   bg: "blue.500",
                 }}
-
                 onClick={handleLogin}
               >
                 Sign in

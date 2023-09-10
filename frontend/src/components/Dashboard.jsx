@@ -19,6 +19,7 @@ import {
   MenuDivider,
   MenuItem,
   MenuList,
+  Heading,
 } from "@chakra-ui/react";
 import {
   FiHome,
@@ -30,18 +31,24 @@ import {
   FiBell,
   FiChevronDown,
 } from "react-icons/fi";
-import rev from "../Rev_Rewards.png"
+// import DarkModeSwitch from "./DarkModeSwitch";
 
 const LinkItems = [
-  { name: "Home", icon: FiHome },
+  { name: "Near You", icon: FiHome },
   { name: "Upload", icon: FiTrendingUp },
+  { name: "Points", icon: FiCompass },
+  { name: "Favourites", icon: FiStar },
+  { name: "Settings", icon: FiSettings },
 ];
 
 const SidebarContent = ({ onClose, ...rest }) => {
   return (
     <Box
       transition="3s ease"
-      bg={useColorModeValue('red.800', "gray.900")}
+      bg={useColorModeValue(
+        "linear-gradient(135deg, #E29495, #D47583, #BF556A)",
+        "gray.800"
+      )}
       borderRight="1px"
       borderRightColor={useColorModeValue("gray.200", "gray.700")}
       w={{ base: "full", md: 60 }}
@@ -50,43 +57,30 @@ const SidebarContent = ({ onClose, ...rest }) => {
       {...rest}
     >
       <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-        <img src={rev} width={50} height={50} />
+        <Heading
+          fontSize={"xl"}
+          fontFamily="'Pacifico', cursive"
+          textShadow="
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+         -1px 1px 0 #000,
+          1px 1px 0 #000"
+          color={"white"}
+        >
+          Reveille Rewards
+        </Heading>
         <CloseButton display={{ base: "flex", md: "none" }} onClick={onClose} />
       </Flex>
       {LinkItems.map((link) => (
-        <NavItem key={link.name} icon={link.icon}>
+        <NavItem
+          key={link.name}
+          icon={link.icon}
+          color="white"
+          fontWeight="bold"
+        >
           {link.name}
         </NavItem>
       ))}
-      <Menu>
-            <MenuButton
-              py={2}
-              transition="all 0.3s"
-              _focus={{ boxShadow: "none" }}
-            >
-              <HStack>
-                <VStack
-                  display={{ base: "none", md: "flex" }}
-                  alignItems="center"
-                  spacing="0.5px"
-                  ml="1"
-                >
-                  <NavItem key="Business" icon={FiChevronDown}>
-                    Business
-                  </NavItem>
-                </VStack>
-              </HStack>
-            </MenuButton>
-            <MenuList
-              bg={useColorModeValue("white", "gray.900")}
-              borderColor={useColorModeValue("gray.200", "gray.700")}
-            >
-              <MenuItem>Company 1</MenuItem>
-              <MenuItem>Company 2</MenuItem>
-              <MenuItem>Company 3</MenuItem>
-              <MenuItem>Company 4</MenuItem>
-            </MenuList>
-          </Menu>
     </Box>
   );
 };
@@ -107,8 +101,8 @@ const NavItem = ({ icon, children, ...rest }) => {
         role="group"
         cursor="pointer"
         _hover={{
-          bg: "white",
-          color: "red.800",
+          bg: "cyan.400",
+          color: "white",
         }}
         {...rest}
       >
@@ -135,7 +129,10 @@ const MobileNav = ({ onOpen, ...rest }) => {
       px={{ base: 4, md: 4 }}
       height="20"
       alignItems="center"
-      bg={useColorModeValue("white", "gray.900")}
+      bg={useColorModeValue(
+        "linear-gradient(135deg, #E29495, #D47583, #BF556A)",
+        "gray.800"
+      )}
       borderBottomWidth="1px"
       borderBottomColor={useColorModeValue("gray.200", "gray.700")}
       justifyContent={{ base: "space-between", md: "flex-end" }}
@@ -149,15 +146,23 @@ const MobileNav = ({ onOpen, ...rest }) => {
         icon={<FiMenu />}
       />
 
-      <img src={rev} width={50} height={50} />
+      <Heading
+        display={{ base: "flex", md: "none" }}
+        fontSize={"xl"}
+        fontFamily="'Pacifico', cursive"
+        textShadow="
+        -1px -1px 0 #000,  
+         1px -1px 0 #000,
+         -1px 1px 0 #000,
+          1px 1px 0 #000"
+        color={"white"}
+      >
+        Reveille Rewards
+      </Heading>
 
-      <HStack spacing={{ base: "0", md: "6" }}>
-        <IconButton
-          size="lg"
-          variant="ghost"
-          aria-label="open menu"
-          icon={<FiBell />}
-        />
+      <HStack spacing={{ base: "0", md: "4" }}>
+        
+
         <Flex alignItems={"center"}>
           <Menu>
             <MenuButton
@@ -178,9 +183,11 @@ const MobileNav = ({ onOpen, ...rest }) => {
                   spacing="1px"
                   ml="2"
                 >
-                  <Text fontSize="sm">Three Dumb Kids</Text>
-                  <Text fontSize="xs" color="gray.600">
-                    Programmers
+                  <Text fontSize="sm" color="white">
+                    Justina Clark
+                  </Text>
+                  <Text fontSize="xs" color="white">
+                    Admin
                   </Text>
                 </VStack>
                 <Box display={{ base: "none", md: "flex" }}>
@@ -196,7 +203,7 @@ const MobileNav = ({ onOpen, ...rest }) => {
               <MenuItem>Settings</MenuItem>
               <MenuItem>Billing</MenuItem>
               <MenuDivider />
-              <MenuItem>Sign out</MenuItem>
+              <MenuItem onclick={() => {return (<SimpleCard />)}}>Sign out</MenuItem>
             </MenuList>
           </Menu>
         </Flex>
@@ -209,7 +216,13 @@ const Dashboard = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
-    <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
+    <Box
+      minH="100vh"
+      bg={useColorModeValue(
+        "radial-gradient(circle, #EEC5C6, #E6B2B4, #D99CA1)",
+        "gray.800"
+      )}
+    >
       <SidebarContent
         onClose={() => onClose}
         display={{ base: "none", md: "block" }}
@@ -228,12 +241,7 @@ const Dashboard = () => {
       </Drawer>
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        <div>
-          <h1>Welcome to Reveille Rewards!</h1>
-        </div>
-        <div>
-          <p>You currently have some number of points. Click the Upload button on the left to upload your receipts!</p>
-        </div>
+        {/* Content */}
       </Box>
     </Box>
   );
