@@ -241,7 +241,8 @@ const Dashboard = () => {
       </Drawer>
       <MobileNav onOpen={onOpen} />
       <Box ml={{ base: 0, md: 60 }} p="4">
-        {/* Content */}
+        <h1>Welcome to Reveille Rewards!</h1>
+        <p>You have some number of points right now. Click the upload button to upload your receipts!</p>
       </Box>
     </Box>
   );
