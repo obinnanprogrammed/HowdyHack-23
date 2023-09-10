@@ -38,18 +38,6 @@ function App() {
     </>
   );
 
-  // return <div>{data ? <SimpleCard /> : "Loading..."}</div>;
-  return (
-    <Router>
-      <Routes>
-        <Route path="/login" component={SimpleCard} />
-        <Route path="/home" component = {SimpleSidebar} />
-        
-      </Routes>
-      <SimpleSidebar />
-    </Router>
-  )
-
 }
 
 export default App;

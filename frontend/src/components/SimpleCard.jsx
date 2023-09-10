@@ -43,38 +43,6 @@ export default function SimpleCard({ switchToSignup, onLogin }) {
   if (isAuthenticated) {
     return <Dashboard />;
   }
-
-=======
-import {useState} from 'react';
-import {useNavigate} from 'react-router-dom';
-
-export default function SimpleCard() {
-  const history = useNavigate();
-  const [formData, setFormData] = useState({
-    email: "",
-    password: ""
-  });
-
-  const handleInputChange = (e) => {
-    const {name, value} = e.target;
-
-    setFormData({
-      ...formData,
-      [name]: value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if(formData.email !== "obinnanwakwue10@gmail.com" || formData.password !== "censored") {
-      console.log("Cope, you have invalid information");
-      console.log(formData.email, formData.password)
-      return (<p style="color: red">Invalid login</p>)
-    } else {
-      history.push("/home");
-    }
-  }
-
   return (
     <Flex
       minH={"100vh"}
@@ -110,12 +78,6 @@ export default function SimpleCard() {
                 onChange={handlePasswordChange}
               />
 
-              <Input type="email" onChange={handleInputChange} />
-            </FormControl>
-            <FormControl id="password">
-              <FormLabel>Password</FormLabel>
-              <Input type="password" onChange={handleInputChange} />
-
             </FormControl>
             <Stack spacing={10}>
               <Stack
@@ -136,9 +98,6 @@ export default function SimpleCard() {
 
                 onClick={handleLogin}
               >
-
-              onClick={handleSubmit}>
-
                 Sign in
               </Button>
             </Stack>
