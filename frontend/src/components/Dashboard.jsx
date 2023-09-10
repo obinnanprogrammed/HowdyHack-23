@@ -67,17 +67,14 @@ const SidebarContent = ({ onClose, ...rest }) => {
               <HStack>
                 <VStack
                   display={{ base: "none", md: "flex" }}
-                  alignItems="flex-start"
-                  spacing="1px"
-                  ml="2"
+                  alignItems="center"
+                  spacing="0.5px"
+                  ml="1"
                 >
                   <NavItem key="Business" icon={FiChevronDown}>
                     Business
                   </NavItem>
                 </VStack>
-                <Box display={{ base: "none", md: "flex" }}>
-                  <FiChevronDown />
-                </Box>
               </HStack>
             </MenuButton>
             <MenuList
