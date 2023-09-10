@@ -7,7 +7,32 @@ from backend.backend.receipt.receipt import Receipt
 
 # TODO: Replace this with all the businesses compatible with Rev Rewards
 businesses = [
-    "Revs American Grill @ MSC"
+    "Revs American Grill @ MSC",
+    "What's The Buzz Specialty Coffee",
+    "Brazos Cedar Works",
+    "David Gardner's Jewelers",
+    "Champion Firearms Corp",
+    "Aggieland Tree Service",
+    "Learning Express Toys of College Station",
+    "Avinext",
+    "Advanced Security Concepts",
+    "Bon AppeTea",
+    "Curious Collections Vinyl Records & More",
+    "Sweet Eugene's",
+    "Benjamin Knox Gallery",
+    "Montelongo's Fine Jewelry",
+    "Advanced Locksmith",
+    "1541 Pastries and Coffee",
+    "Living Water Pottery Studio",
+    "Sabi Boutique",
+    "Stampede College Station",
+    "Maroon & White Barber Shop",
+    "Bluebonnet Pet Ranch",
+    "O'Bannon's Tap House",
+    "Marfa Texas Kitchen",
+    "Stella Southern Café",
+    "Raging Bull Street Tacos",
+    "Shiner Park"
 ]
 
 # Used to resize images for performance or accuracy purposes
